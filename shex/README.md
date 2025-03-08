@@ -8,27 +8,33 @@ I use the DocxMerge tool which I downloaded to the folder `utils` as a Windows b
 
 ## Conversion instructions
 
-Step 1. Create teh body of the spec from the index.html. It generates file `result.docx`
+Step 1. Create the cooked.html file which is what is obtained after running javascript + CSS on the index.html file. I ran it when I was in the `shexSpec/spec` folder.
 
 ```sh
-pandoc -f html -s index.html --reference-doc=custom-reference.docx -t docx -o result.docx
+npx single-file index.html --dump-content > \src\word\HTML2Doc\shex\cooked.html
 ```
 
-Step 2. Merge the `Intro.docx` and the previoux file to obtain the final `output.docx`:
+Step 2. Create the body of the spec from the index.html. It generates file `result.docx`
 
 ```sh
-../utils/docxmerge -i Intro.docx result.docx -o final.docx
+pandoc -f html -s cooked.html --reference-doc=custom.docx -t docx -o body.docx
 ```
 
-This generates `final.docx` which contains the merge of the documents.
+Step 3. Merge the `Intro.docx` and the previoux file (`body.docx`) to obtain the final `draft-merged.docx`:
+
+```sh
+../utils/docxmerge -i Intro.docx body.docx -o merged.docx
+```
+
+This generates `merged.docx` which contains the merge of the documents.
 
 ## Customizations
 
-- To change styles in the body, we should change the file `custom.reference.docx`
+- To change styles in the body, we should change the file `custom.docx`
 - To change the content of the Intro we should change `Intro.docx`
 - To change the content in the body, change `index.html`
+- Some parts of the body are generated from `respec-ieee.js`
 
 ## Some problems to solve
 
 - Some of the text in Intro.docx still needs to be defined...
-- The references are still included like `[[!JSON-LD]]`
