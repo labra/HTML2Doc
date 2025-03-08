@@ -2,13 +2,15 @@
 
 ## Requirements
 
-I installed locally [pandoc](https://pandoc.org/).
-
-I use the DocxMerge tool which I downloaded to the folder `utils` as a Windows binary. I googled for another tool that could merge two `.docx` files but I didn't find it. As this is a `.exe`, I suspect, this will only work on Windows...
+- [single-file](https://www.npmjs.com/package/single-file-cli): I installed if with npm.
+- [pandoc](https://pandoc.org/): I installed locally [pandoc](https://pandoc.org/).
+- [DocxMerge](https://github.com/jamessantiago/DocxMerge): merges docx files. I downloaded to the folder `utils` as a Windows binary. I googled for another tool that could merge two `.docx` files but I didn't find it. As this is a `.exe`, I suspect, this will only work on Windows...
 
 ## Conversion instructions
 
-Step 1. Create the cooked.html file which is what is obtained after running javascript + CSS on the index.html file. I ran it when I was in the `shexSpec/spec` folder.
+Step 1. Create the cooked.html file which is what is obtained after running javascript + CSS on the index.html file.
+
+I ran it from Windows (where I have chrome.exe and single-file installed), when I was in the `shexSpec/spec` folder.
 
 ```sh
 npx single-file index.html --dump-content > \src\word\HTML2Doc\shex\cooked.html
