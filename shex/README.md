@@ -3,10 +3,10 @@
 - Step 1. Convert the HTML to Word using pandoc:
 
 ```sh
-pandoc -f html -s .\ED-shex-semantics-20250611.labrify.html --reference-doc=custom.docx -t docx -o ED-shex-semantics-20250611_custom.docx
+pandoc -f html -s .\ED-shex-semantics-20260331.labrify.html --reference-doc=custom.docx -t docx -o ED-shex-semantics-20260331.labrify.docx
 ```
 
-- Step 2: Copy/paste from section Overview of `merged.docx`.
+- Step 2: Open `merged.doc` and copy/paste from section overview of the generated `docx` in previous step to  `merged.doc`.
 
 - Step 3: Search and replace the 3 Heading styles using word. Search and replace Ctrl-H (click on format -> styles)
 - "Heading 2" -> "IEEEStds Level 1 Header"
